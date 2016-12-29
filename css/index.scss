@@ -266,7 +266,9 @@ body{height: 100%;}
         }
         .editText-warn{
             position: absolute;
+            width: 100%;
             bottom: -.2rem;
+            white-space: nowrap;
         }
     }
 }
