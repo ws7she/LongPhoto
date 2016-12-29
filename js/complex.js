@@ -17,7 +17,7 @@ window.complex = function () {
             })
         },
         startScale: function (callback) {
-            var lock = false, currentX = 0, currentY = 0, scaleX = 0, scaleY = 0, areaX = 0, areaY = 0, disY = 0, disX = 0;
+            var lock = false, currentX = 0, currentY = 0, scaleX = 0, scaleY = 0, areaX = $(".edit_show").width(), areaY = $(".edit_show").height(), disY = 0, disX = 0;
             $(".scale_area").on("touchstart", function (event) {
                 lock = true;
                 scaleLock = true;
@@ -29,7 +29,6 @@ window.complex = function () {
                 currentY = e.touches[0].clientY;
                 e.preventDefault();
             });
-
             $(document).on("touchend", function () {
                 if (scaleLock) {
                     lock = false;
@@ -41,14 +40,14 @@ window.complex = function () {
                     var e = event || window.event;
                     var nowX = e.touches[0].clientX, nowY = e.touches[0].clientY;
                     disX = nowX - currentX, disY = nowY - currentY;
-                    areaX = $(".edit_show").width(), areaY = $(".edit_show").height();
+                    var x = $(".edit_show").width(), y = $(".edit_show").height();
                     if (lock) {
                         scaleX = disX / areaX + 1, scaleY = disY / areaY + 1;
                         if (scaleX > 1 && scaleY > 1) {
                             $(".edit_show").css("-webkit-transform", "scale(" + scaleX + "," + scaleY + ")")
                         }
                     }
-                    $(".editText-main").css({ width: areaX, height: areaY })
+                    $(".editText-main").css({ width: x, height: y })
                 }
             });
         },
@@ -70,7 +69,6 @@ window.complex = function () {
                 if (skewLock) {
                     lock = false;
                     skewLock = false;
-                    $(".editText").css("-webkit-transform", "rotate(" + rotate + "deg)")
                 }
             });
             $(document).on("touchmove", function (event) {
