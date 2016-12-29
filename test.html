@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .color-one, .color-two, .color-three {
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+
+        }
+
+        .color-one {
+            background-color: #fe4365;
+        }
+
+        .color-two {
+            background-color: yellow;
+        }
+
+        .color-three {
+            background-color: dodgerblue;
+        }
+    </style>
+    <script type="text/javascript" src="http://apps.bdimg.com/libs/zepto/1.1.4/zepto.min.js"></script>
+</head>
+
+<body>
+<div class="main"></div>
+<textarea id="area" style="margin-top:100px"></textarea>
+<div class="color-one"></div>
+<div class="color-two"></div>
+<div class="color-three"></div>
+<script>
+    $(function () {
+        var focus = '';
+        $("#area").bind("blur", function () {
+            $(".main").append('<textarea class="haha">eeeeees</textarea>');
+        });
+        $('.main').on('focus','textarea:not(#area)',function () {
+            focus = $(this);
+        });
+        $('div.color-one,div.color-two,div.color-three').on('click', function () {
+            var color = $(this).css('background-color');
+            if (focus == '') {
+                alert('please choose')
+            } else {
+                focus.css('border-color', color);
+            }
+        });
+    })
+</script>
+</body>
+
+</html>

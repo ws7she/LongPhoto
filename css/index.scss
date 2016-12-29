@@ -1,0 +1,288 @@
+@charset "utf-8";
+@import "reset.css";
+@import "base";
+.user{
+    .top{
+        position: relative;
+        .user-bg{
+            padding-top: 85.204%;
+            background-color: #666;
+        }
+    }
+}
+
+.easy{
+    background: $bgColor;
+    position: relative;
+    .edit-word{
+        background: $bgColor;
+        padding: .07rem;
+        line-height: 1.5;
+        width: 100%;
+        height: auto;
+        border:none;
+        resize: none;
+        box-sizing: border-box;
+        font-size: .14rem;
+    }
+    .edit-pic{
+        position: relative;
+        background: $menuColor2;
+        color: $iconColor;
+        text-align: center;
+        height: 1rem;
+        &:before{
+            content: '点击添加图片';
+            display: block;
+            position: absolute;
+            top: 48%;
+            left: 50%;
+            font-size: .14rem;
+            @include transform(translate(-50%,-50%))
+        }
+        input{
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+        }
+    }
+}
+.func-area{
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    background: $menuColor2;
+    box-sizing: border-box;
+    .func-all{
+        height: .4rem;
+        padding: 0 .07rem;
+        border-bottom:1px solid $fontColor2;
+        .packup{
+            float: left;
+            padding-top: .05rem;
+        }
+        .pic-choose,.text-adjust,.text-input{
+            float: right;
+            padding-top: .05rem;
+            padding-left: .16rem;
+            position: relative;
+        }
+        .text-adjust{
+            padding-top: .02rem;
+        }
+        .pic-choose{
+            input{
+                position: absolute;
+                left: 0;
+                top: 0;
+                height: .3rem;
+                width: .3rem;
+                opacity: 0;
+            }
+        }
+
+    }
+    .font-choose{
+        display: flex;
+        display: -webkit-flex;
+        width: 100%;
+        padding: .07rem;
+        box-sizing: border-box;
+        .hand-move{
+            position: relative;
+            width: 300px;
+        }
+        .font-bg{
+            width: 100%;
+            height: .02rem;
+            background: $fontColor2;
+            margin-top: .15rem;
+        }
+        .font-btn{
+            position: absolute;
+            top: .05rem;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: $fontColor2;
+            left: 50%;
+            margin-left: -10px;
+        }
+        .font-now{
+            position: absolute;
+            top: -5px;
+            left: 50%;
+            margin-left: -6px;
+            font-size: 12px;
+        }
+        .font-small,.font-big{
+            display: block;
+            flex: 1;
+            -webkit-flex:1;
+        }
+    }
+    .section-select{
+        display: flex;
+        display: -webkit-flex;
+        width: 100%;
+        padding: .07rem;
+        box-sizing: border-box;
+        .section-align,.section-font{
+            -webkit-flex:1; 
+            flex: 1;
+            display: flex;
+            display: -webkit-flex;
+            a{
+               -webkit-flex:1; 
+                flex: 1; 
+                text-align: center;
+            }
+        }
+    }
+    .color-select{
+        padding: .07rem;
+        div{
+            display: inline-block;
+            width: .3rem;
+            height: .3rem;
+            border-radius: 50%;
+        }
+        .color-one{
+            background-color: $fontColor1;
+        }
+        .color-two{
+            background-color: $fontColor2;
+        }
+        .color-three{
+            background-color: $fontColor3;
+        }
+        .color-four{
+            background-color: $fontColor4;
+        }
+        .color-five{
+            background-color: $fontColor5;
+        }
+        .color-six{
+            background-color: $fontColor6;
+        }
+    }
+}
+.head{
+    background: #333;
+    width: 100%;
+    height: .4rem;
+    display: flex;
+    display: -webkit-flex;
+    .goback,.goview{
+        display: inline-block;
+        width: .3rem;
+        line-height: .4rem;
+        color:#fff;
+    }
+    .goback{
+        font-size: .2rem;
+        padding-left: .07rem;
+    }
+    .goview{
+        font-size: .14rem;
+        padding-right: .07rem;
+    }
+    .head-editer{
+        flex: 1;
+        -webkit-flex:1;
+        color:#fff;
+        font-size: .16rem;
+        text-align: center;
+        line-height: .4rem;
+    }
+}
+#canvasArea{
+    img{
+        display: block;
+    }
+    .saveText{
+        background: $bgColor;
+        padding: .07rem;
+        padding-bottom: 0;
+        line-height: 1.5;
+        width: 100%;
+        height: auto;
+        box-sizing: border-box;
+        font-size: .14rem;
+        word-break: break-all;
+    }
+}
+#canvasMain{
+    position: absolute;
+    top: .4rem;
+    left: 0;
+    z-index: 10;
+}
+
+body{height: 100%;}
+// 畅想版
+.head{
+    // position: fixed;
+    z-index: 10;
+}
+.complex{
+    background: #eee;
+    height: 100%;
+    position: relative;
+    .editText{
+        position: absolute;
+        top: .2rem;
+        left: .1rem;
+        transform-origin: left top;
+        -webkit-transform-origin: left top;
+        .editText-main{
+            border: 1px solid red;
+            position: relative;
+        }
+        .edit_show{
+            background: transparent;
+            width: 100px;height: 50px;
+            box-sizing: border-box;
+            transform-origin: left top;
+            -webkit-transform-origin: left top;
+        }
+        .iconfont{
+            display: block;
+            position: absolute;
+            font-size: .18rem;
+            color:red;
+        }
+        .delete_area{
+            top: -.09rem;
+            left: -.09rem;
+        }
+        .skew_area{
+            top: -.09rem;
+            right: -.09rem;
+        }
+        .scale_area{
+            bottom: -.09rem;
+            right: -.09rem;
+        }
+        .editText-warn{
+            position: absolute;
+            bottom: -.2rem;
+        }
+    }
+}
+.complex-func{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    display: -webkit-flex;
+    width: 100%;
+    a{
+        -webkit-flex: 1;
+        flex: 1;
+        text-align: center;
+    }
+    span{
+        display: block;
+    }
+}

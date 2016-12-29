@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" id="viewport" content="width=device-width, initial-scale=1">
+    <title>Canvas作图</title>
+    <link href="css/index.css" type="text/css" rel="stylesheet">
+    <script type="text/javascript" src="http://apps.bdimg.com/libs/zepto/1.1.4/zepto.min.js"></script>
+    <!--<script type="text/javascript" src="js/zepto.js"></script>-->
+</head>
+
+<body>
+    <header class="head">
+        <a href="javascript:;" class="goback">&lt;</a>
+        <h3 class="head-editer">编辑</h3>
+        <a href="javascript:;" class="goview">预览</a>
+    </header>
+    <div class="easy">
+        <div id="show-area">
+            <div id="canvasArea"></div>
+            <textarea class="edit-word" placeholder="点击这里输入文字" name="textarea"></textarea>
+            <div class="edit-pic">
+                <input type="file" id="addPic_one">
+            </div>
+        </div>
+        <div class="func-area">
+            <div class="func-all clearfix">
+                <a href="javascript:;" class="packup">
+                    <i class="iconfont">&#xe619;</i>
+                </a>
+                <a href="javascript:;" class="text-input">
+                    <i class="iconfont">&#xe6bc;</i>
+                </a>
+                <a href="javascript:;" class="text-adjust">
+                    <i class="iconfont">&#xe6ef;</i>
+                </a>
+                <a href="javascript:;" class="pic-choose">
+                    <i class="iconfont">&#xe655;</i>
+                    <input type="file" id="addPic_two">
+                </a>
+            </div>
+            <div class="func-con" style="">
+                <div class="font-choose">
+                    <a href="javascript:;" class="font-small">
+                        <i class="iconfont">&#xe6f9;</i>
+                    </a>
+                    <div class="hand-move">
+                        <div class="font-bg"></div>
+                        <div class="font-btn"></div>
+                        <div class="font-now">16</div>
+                    </div>
+                    <a href="javascript:;" class="font-big">
+                        <i class="iconfont">&#xe6f8;</i>
+                    </a>
+                </div>
+                <div class="color-select">
+                    <div class="color-one"></div>
+                    <div class="color-two"></div>
+                    <div class="color-three"></div>
+                    <div class="color-four"></div>
+                    <div class="color-five"></div>
+                    <div class="color-six"></div>
+                </div>
+                <div class="section-select">
+                    <div class="section-align">
+                        <a href="javascript:;" class="left-align" name="left">
+                            <i class="iconfont">&#xe646;</i>
+                        </a>
+                        <a href="javascript:;" class="middle-align" name="center">
+                            <i class="iconfont">&#xe618;</i>
+                        </a>
+                        <a href="javascript:;" class="right-align" name="right">
+                            <i class="iconfont">&#xe648;</i>
+                        </a>
+                    </div>
+                    <div class="section-font">
+                        <a href="javascript:;" class="font-bold" name="bold">
+                            <i class="iconfont">&#xe612;</i>
+                        </a>
+                        <a href="javascript:;" class="font-skew" name="italic">
+                            <i class="iconfont">&#xe7ca;</i>
+                        </a>
+                        <a href="javascript:;" class="font-under" name="underline">
+                            <i class="iconfont">&#xe7d0;</i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="null-box"></div>
+    </div>
+    <canvas id="canvasMain" style="display:none"></canvas>
+    <script type="text/javascript" src="js/canvas.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            canvas.init();
+        })
+    </script>
+</body>
+
+</html>

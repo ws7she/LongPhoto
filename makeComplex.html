@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" id="viewport" content="width=device-width, initial-scale=1">
+    <title>Canvas作图 -- 畅想版</title>
+    <link href="css/index.css" type="text/css" rel="stylesheet">
+    <!--<script type="text/javascript" src="http://apps.bdimg.com/libs/zepto/1.1.4/zepto.min.js"></script>-->
+    <script type="text/javascript" src="js/zepto.min.js"></script>
+</head>
+
+<body>
+    <header class="head">
+        <a href="javascript:;" class="goback">&lt;</a>
+        <h3 class="head-editer">编辑</h3>
+        <a href="javascript:;" class="goview">预览</a>
+    </header>
+    <div class="complex">
+        <div class="" style="opacity:0">从下方插入图片，文本。或涂鸦开始</div>
+        <div class="editText">
+            <div class="editText-main">
+                <div class="edit_show">xavsdva</div>
+                <i class="iconfont delete_area">&#xe642;</i>
+                <i class="iconfont skew_area">&#xe666;</i>
+                <i class="iconfont scale_area">&#xe667;</i>
+            </div>
+            <div class="editText-warn">双击以编辑文字</div>
+        </div>
+        <div class="editPic" style="display:none">
+            <img src="">
+            <i class="iconfont delete_area">&#xe642;</i>
+            <i class="iconfont"></i>
+            <i class="iconfont">&#xe667;</i>
+            <div class="">双击以更换图片</div>
+        </div>
+        <div class="complex-func">
+            <a href="javascript:;" class="">
+                <i class="iconfont">&#xe655;</i>
+                <span>图片</span>
+            </a>
+            <a href="javascript:;" class="">
+                <i class="iconfont">&#xe6bc;</i>
+                <span>文本</span>
+            </a>
+            <a href="javascript:;" class="">
+                <i class="iconfont">&#xe6f7;</i>
+                <span>涂鸦</span>
+            </a>
+        </div>
+    </div>
+    <canvas id="canvasMain" style="display:none"></canvas>
+    <script type="text/javascript" src="js/complex.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            complex.init();
+        })
+    </script>
+</body>
+
+</html>

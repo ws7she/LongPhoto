@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="http://apps.bdimg.com/libs/zepto/1.1.4/zepto.min.js"></script>
+    <style type="text/css">
+        #addPic {
+            width: 100px;
+            height: 50px;
+            background-color: #1ABC9C;
+            display: inline-block
+        }
+        /*input{opacity: 0;width: 100%;height: 100%;}*/
+    </style>
+</head>
+
+<body>
+    <canvas id="mainCanvas" width="500" height="500"></canvas>
+    <img id="portrait" src="">
+    <a href="javascript:;" id="addPic"></a>
+    <input type="file" name="file" onchange="showPreview(this)" multiple="multiple" />
+
+    <a class="" href="javascript:;" id="sava">保存</a>
+    <!--<script type="text/javascript" src="js/canvas.js"></script>-->
+    <script>
+        $(function() {
+            
+        })
+function showPreview(source) {
+        var file = source.files[0];
+        if(window.FileReader) {
+            var fr = new FileReader();
+            fr.onloadend = function(e) {
+                $("body").append("<img src='" + e.target.result + "' alt='from show'/>");
+                // document.getElementById("portrait").src = ;
+            };
+            fr.readAsDataURL(file);
+        }
+    }
+    preImage("img/crcode.png",function(x,y,width,height){  
+         context.save();    
+         context.rotate(10*Math.PI/180);   
+         context.drawImage(this,x,y,width,height);                      
+         context.restore();  
+           
+     },{"x":10,"y":10,"width":100,"height":100});
+
+
+    $("#addPic").on("click", function () {
+        var h = document.getElementById("portrait").attributes["src"].nodeValue;
+        var img = new Image();
+        img.src = h;
+        img.onload=function () {
+            var canvas = document.getElementById("mainCanvas");
+            var ctx = canvas.getContext("2d");
+            ctx.drawImage(img,0,0, 500, 500)
+        } 
+    })            
+    $("#sava").on("click", function() {
+        var my = document.getElementById("mainCanvas");
+        var image = my.toDataURL("image/png");
+        // $("body").append("<img src='" + image + "' alt='from canvas'/>");
+    })
+
+</script>
+</body>
+
+</html>

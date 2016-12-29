@@ -1,0 +1,44 @@
+$wqColor:#69B29F;
+$iconColor:#8a8a8a;
+$menuColor1:#f2f2f2;
+$menuColor2:#e4e4e4;
+$bgColor:#fff;
+
+
+@font-face {
+  font-family: 'iconfont';  /* project id 195783 */
+  src: url('font/iconfont.eot');
+  src: url('font/iconfont.eot?#iefix') format('embedded-opentype'),
+  url('font/iconfont.woff') format('woff'),
+  url('font/iconfont.ttf') format('truetype'),
+  url('font/iconfont.svg#iconfont') format('svg');
+}
+.iconfont{
+  font-family:"iconfont" !important;
+  font-size:.32rem;
+  font-style:normal;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-stroke-width: 0.2px;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+$fontColor1:#333;
+$fontColor2:#999;
+$fontColor3:#fe4365;
+$fontColor4:#fc9d9a;
+$fontColor5:#C8C8A9;
+$fontColor6:#83af9b;
+
+@mixin transform($tran){
+    transform: $tran;
+    -webkit-transform: $tran;
+    -m-transform:$tran;
+    -o-transform: $tran;
+}
+
+.clearfix:before,.clearfix:after{ 
+    content:""; 
+    display:table; 
+} 
+.clearfix:after{clear:both;}  
+
