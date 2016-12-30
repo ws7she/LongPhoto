@@ -14,6 +14,14 @@ window.complex = function () {
         initEvent: function () {
             $(".delete_area").on("click", function () {
                 // alert("Dsa")
+            });
+            var touchtime = new Date().getTime();
+            $(".editText-warn").on("click", function () {
+                if (new Date().getTime() - touchtime < 500) {
+                    $(".cover").show();
+                } else {
+                    touchtime = new Date().getTime();
+                }
             })
         },
         startScale: function (callback) {

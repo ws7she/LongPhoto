@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" id="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
     <title>Canvas作图 -- 畅想版</title>
     <link href="css/index.css" type="text/css" rel="stylesheet">
     <!--<script type="text/javascript" src="http://apps.bdimg.com/libs/zepto/1.1.4/zepto.min.js"></script>-->
@@ -25,7 +25,15 @@
                 <i class="iconfont skew_area">&#xe666;</i>
                 <i class="iconfont scale_area">&#xe667;</i>
             </div>
-            <div class="editText-warn">双击以编辑文字</div>
+            <div class="editText-warn">双击这里以编辑文字</div>
+        </div>
+        <div class="editText-text">
+            <textarea></textarea>
+            <div class=""></div>
+            <div class="">
+                <a href="javascript:;" class="">取消</a>
+                <a href="javascript:;" class="">添加</a>
+            </div>
         </div>
         <div class="editPic" style="display:none">
             <img src="">
@@ -49,6 +57,7 @@
             </a>
         </div>
     </div>
+    <div class="cover" style="display: noe;"></div>
     <canvas id="canvasMain" style="display:none"></canvas>
     <script type="text/javascript" src="js/complex.js"></script>
     <script type="text/javascript">
