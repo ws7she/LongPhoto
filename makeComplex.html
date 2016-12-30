@@ -18,53 +18,60 @@
     </header>
     <div class="complex">
         <div class="" style="opacity:0">从下方插入图片，文本。或涂鸦开始</div>
-        <div class="editText">
-            <div class="editText-main">
-                <div class="edit_show">xavsdva</div>
-                <i class="iconfont delete_area">&#xe642;</i>
-                <i class="iconfont skew_area">&#xe666;</i>
-                <i class="iconfont scale_area">&#xe667;</i>
-            </div>
-            <div class="editText-warn">双击这里以编辑文字</div>
-        </div>
-        <div class="editText-text">
-            <textarea></textarea>
-            <div class=""></div>
-            <div class="">
-                <a href="javascript:;" class="">取消</a>
-                <a href="javascript:;" class="">添加</a>
-            </div>
-        </div>
-        <div class="editPic" style="display:none">
-            <img src="">
-            <i class="iconfont delete_area">&#xe642;</i>
-            <i class="iconfont"></i>
-            <i class="iconfont">&#xe667;</i>
-            <div class="">双击以更换图片</div>
-        </div>
-        <div class="complex-func">
-            <a href="javascript:;" class="">
-                <i class="iconfont">&#xe655;</i>
-                <span>图片</span>
-            </a>
-            <a href="javascript:;" class="">
-                <i class="iconfont">&#xe6bc;</i>
-                <span>文本</span>
-            </a>
-            <a href="javascript:;" class="">
-                <i class="iconfont">&#xe6f7;</i>
-                <span>涂鸦</span>
-            </a>
-        </div>
+<div class="editText">
+    <div class="editText-main">
+        <div class="edit_show">xavsdva</div>
+        <i class="iconfont delete_area">&#xe642;</i>
+        <i class="iconfont skew_area">&#xe666;</i>
+        <i class="iconfont scale_area">&#xe667;</i>
     </div>
-    <div class="cover" style="display: noe;"></div>
-    <canvas id="canvasMain" style="display:none"></canvas>
-    <script type="text/javascript" src="js/complex.js"></script>
-    <script type="text/javascript">
-        $(function(){
-            complex.init();
-        })
-    </script>
+    <div class="editText-warn">双击这里以编辑文字</div>
+</div>
+<div class="editText-edit">
+    <textarea class="font-complex"></textarea>
+    <div class="color-select">
+        <div class="color-one"></div>
+        <div class="color-two"></div>
+        <div class="color-three"></div>
+        <div class="color-four"></div>
+        <div class="color-five"></div>
+        <div class="color-six"></div>
+    </div>
+    <div class="btn-area">
+        <a href="javascript:;" class="btn-cancel">取消</a>
+        <a href="javascript:;" class="btn-add">添加</a>
+    </div>
+</div>
+<div class="editPic" style="display:none">
+<img src="">
+<i class="iconfont delete_area">&#xe642;</i>
+<i class="iconfont"></i>
+<i class="iconfont">&#xe667;</i>
+<div class="">双击以更换图片</div>
+</div>
+<div class="complex-func">
+    <a href="javascript:;" class="">
+        <i class="iconfont">&#xe655;</i>
+        <span>图片</span>
+    </a>
+    <a href="javascript:;" class="">
+        <i class="iconfont">&#xe6bc;</i>
+        <span>文本</span>
+    </a>
+    <a href="javascript:;" class="">
+        <i class="iconfont">&#xe6f7;</i>
+        <span>涂鸦</span>
+    </a>
+</div>
+</div>
+<div class="cover" style="display: noe;"></div>
+<canvas id="canvasMain" style="display:none"></canvas>
+<script type="text/javascript" src="js/complex.js"></script>
+<script type="text/javascript">
+    $(function () {
+        complex.init();
+    })
+</script>
 </body>
 
 </html>

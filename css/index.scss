@@ -271,6 +271,19 @@ body{height: 100%;}
             white-space: nowrap;
         }
     }
+    .editText-edit{
+        position: absolute;
+        width: 2rem;
+        top: 25%;
+        left: 50%;
+        z-index: 100;
+        transform: translateX(-50%);
+        -webkit-transform: translateX(-50%);
+        textarea{
+            width: 100%;
+            height: 1rem;
+        }
+    }
 }
 .complex-func{
     position: fixed;
