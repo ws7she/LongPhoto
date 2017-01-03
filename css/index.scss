@@ -139,32 +139,34 @@
             }
         }
     }
-    .color-select{
-        padding: .07rem;
-        div{
-            display: inline-block;
-            width: .3rem;
-            height: .3rem;
-            border-radius: 50%;
-        }
-        .color-one{
-            background-color: $fontColor1;
-        }
-        .color-two{
-            background-color: $fontColor2;
-        }
-        .color-three{
-            background-color: $fontColor3;
-        }
-        .color-four{
-            background-color: $fontColor4;
-        }
-        .color-five{
-            background-color: $fontColor5;
-        }
-        .color-six{
-            background-color: $fontColor6;
-        }
+    .color-select div{
+        width: .3rem;
+        height: .3rem;
+    }
+}
+.color-select{
+    padding: .07rem;
+    div{
+        display: inline-block;
+        border-radius: 50%;
+    }
+    .color-one{
+        background-color: $fontColor1;
+    }
+    .color-two{
+        background-color: $fontColor2;
+    }
+    .color-three{
+        background-color: $fontColor3;
+    }
+    .color-four{
+        background-color: $fontColor4;
+    }
+    .color-five{
+        background-color: $fontColor5;
+    }
+    .color-six{
+        background-color: $fontColor6;
     }
 }
 .head{
@@ -282,6 +284,28 @@ body{height: 100%;}
         textarea{
             width: 100%;
             height: 1rem;
+            box-sizing: border-box;
+        }
+        .btn-area{
+            display: flex;
+            display: -webkit-flex;
+            text-align: center;
+            background-color: $bgColor2;
+            a{
+                display: block;
+                flex: 1;
+                -webkit-flex:1; 
+                color:$fontColor1;
+                line-height: 2;
+                &.btn-add{
+                    border-left: 1px solid $fontColor1;
+                    color:$fontColor3;
+                }
+            }
+        }
+        .color-select div{
+            width: .25rem;
+            height: .25rem;
         }
     }
 }
