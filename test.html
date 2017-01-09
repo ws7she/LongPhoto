@@ -35,23 +35,12 @@
 <div class="color-two"></div>
 <div class="color-three"></div>
 <script>
-    $(function () {
-        var focus = '';
-        $("#area").bind("blur", function () {
-            $(".main").append('<textarea class="haha">eeeeees</textarea>');
-        });
-        $('.main').on('focus','textarea:not(#area)',function () {
-            focus = $(this);
-        });
-        $('div.color-one,div.color-two,div.color-three').on('click', function () {
-            var color = $(this).css('background-color');
-            if (focus == '') {
-                alert('please choose')
-            } else {
-                focus.css('border-color', color);
-            }
-        });
-    })
+    var num = 100;
+    function haha() {
+        num = num + 1;
+        return num;
+    }
+    console.log(haha())
 </script>
 </body>
 

@@ -1,5 +1,6 @@
 window.complex = function () {
-    var scaleLock = false, skewLock = false, moveLock = false, focus = '';;
+    var scaleLock = false, skewLock = false, moveLock = false, focus = '';
+    var _this;
     var complex = {
         init: function () {
             // this.wrapDom();
@@ -9,23 +10,16 @@ window.complex = function () {
 
         },
         initEvent: function () {
+            _this = this;
             $(".comAddText").on("click", function () {
                 $(".initial-warn").hide();
                 var dom = $('<div class="editText"><div class="editText-main"><div class="edit_show"></div><i class="iconfont delete_area">&#xe642;</i> <i class="iconfont skew_area">&#xe666;</i> <i class="iconfont scale_area">&#xe667;</i></div><div class="editText-warn">双击这里以编辑文字</div></div>')
                 $(".complex").append(dom);
                 $(".editText").show();
-                var deleteBtn = dom.find('i.delete_area');
-                var editTextBtn = dom.find('div.editText-warn');
-                var scaleBtn = dom.find('i.scale_area');
-                var skewBtn = dom.find('i.skew_area');
-                var moveBtn = dom.find('i.move_area');
-                var editShow = dom.find('div.edit_show');
-                var editMain = dom.find('div.editText-main');
-                console.log( editMain)
-                complex.startScale(scaleBtn, editShow, editMain);
-                complex.startSkew(skewBtn);
-                complex.startMove(moveBtn);
-                complex.fontEvent(deleteBtn, editTextBtn);
+                complex.startScale();
+                complex.startSkew();
+                complex.startMove();
+                complex.fontEvent();
                 complex.addClass();
             });
 
@@ -40,14 +34,18 @@ window.complex = function () {
                 $(".cover").hide();
                 $(".editText-edit").hide();
             });
+
+             $("#addPic_com").on("change", function () {
+                // _this.showPic(this);
+                alert("kdc")
+            });
         },
-        fontEvent: function (deleteBtn, editTextBtn) {
-            deleteBtn.on("click", function () {
+        fontEvent: function () {
+            $(".delete_area").on("click", function () {
                 $(this).parent().parent().remove();
-                console.log("remove")
             })
             var touchtime = new Date().getTime();
-            editTextBtn.on("click", function () {
+            $(".editText-warn").on("click", function () {
                 if (new Date().getTime() - touchtime < 500) {
                     $(".cover").show();
                     $(".editText-edit").show();
@@ -56,15 +54,21 @@ window.complex = function () {
                 }
             });
         },
-        startScale: function (scaleBtn, editShow, editMain) {
-            var lock = false, currentX = 0, currentY = 0, scaleX = 0, scaleY = 0, areaX = editShow.width(), areaY = editShow.height(), disY = 0, disX = 0;
-            scaleBtn.on("touchstart", function (event) {
+        startScale: function () {
+           var editShow, editMain,areaX , areaY;
+           var lock = false, currentX = 0, currentY = 0, scaleX = 0, scaleY = 0, disY = 0, disX = 0;
+           $(".scale_area").on("touchstart", function (event) {
                 lock = true;
                 scaleLock = true;
                 if (!event) {
                     event = window.event;
                 }
                 var e = event;
+                editMain = $(this).parent();
+                editShow = $(this).siblings().eq(0);
+                console.log(editShow)
+                areaX = editShow.width();
+                areaY = editShow.height()
                 currentX = e.touches[0].clientX;
                 currentY = e.touches[0].clientY;
                 e.preventDefault();
@@ -91,17 +95,19 @@ window.complex = function () {
                 }
             });
         },
-        startSkew: function (skewBtn) {
+        startSkew: function () {
             var lock = false, currentX = 0, currentY = 0, rotate = 0;
-            skewBtn.on("touchstart", function (event) {
+            var editText;
+            $(".skew_area").on("touchstart", function (event) {
                 lock = true;
                 skewLock = true;
                 if (!event) {
                     event = window.event;
                 }
                 var e = event;
-                currentX = parseInt($(".editText").css("left"));
-                currentY = parseInt($(".editText").css("top"));
+                editText = $(this).parent().parent();
+                currentX = parseInt(editText.css("left"));
+                currentY = parseInt(editText.css("top"));
                 e.preventDefault();
             });
 
@@ -128,13 +134,14 @@ window.complex = function () {
                         } else if (currentX <= nowX && currentY >= nowY) {
                             rotate = 360 - rotate;
                         }
-                        $(".editText").css("-webkit-transform", "rotate(" + rotate + "deg)");
+                        editText.css("-webkit-transform", "rotate(" + rotate + "deg)");
                     }
                 }
             });
         },
-        startMove: function (callback) {
-            var lock = false, currentX = 0, currentY = 0, offX = $(".editText").css("left"), offY = $(".editText").css("top");
+        startMove: function () {
+            var editText, offX, offY;
+            var lock = false, currentX = 0, currentY = 0;
             $(".edit_show").on("touchstart", function (event) {
                 lock = true;
                 moveLock = true;
@@ -143,6 +150,9 @@ window.complex = function () {
 
                 }
                 var e = event;
+                editText = $(this).parent().parent();
+                offX = editText.css("left");
+                offY = editText.css("top");
                 currentX = e.touches[0].clientX;
                 currentY = e.touches[0].clientY;
                 e.preventDefault();
@@ -152,7 +162,7 @@ window.complex = function () {
                 if (moveLock) {
                     lock = false;
                     moveLock = false
-                    offX = $(".editText").css("left"), offY = $(".editText").css("top")
+                    offX = editText.css("left"), offY = editText.css("top")
                 }
             });
             $(document).on("touchmove", function (event) {
@@ -162,7 +172,7 @@ window.complex = function () {
                         var nowX = e.touches[0].clientX, nowY = e.touches[0].clientY;
                         var disX = nowX - currentX, disY = nowY - currentY;
                         var x = disX + parseFloat(offX), y = disY + parseFloat(offY);
-                        $(".editText").css({ top: y, left: x })
+                        editText.css({ top: y, left: x })
                     }
                 }
             });
@@ -180,6 +190,28 @@ window.complex = function () {
                     $(".edit_show").css('color', color);
                 }
             });
+        },
+        showPic: function (source) {
+            var file = source.files[0];
+            if (window.FileReader) {
+                var fr = new FileReader();
+                fr.onloadend = function (e) {
+                    var img = e.target.result
+                    $("#canvasArea").append("<img src='" + img + "' alt='from show' width='100%'/>");
+                };
+                fr.readAsDataURL(file);
+            }
+        },
+        preImage: function (url, callback, pos) {
+            var img = new Image();
+            img.src = url;
+            if (img.complte) {
+                callback.call(img, pos.x, pos.y, pos.width, pos.height)
+                return;
+            }
+            img.onload = function () {
+                callback.call(img, pos.x, pos.y, pos.width, pos.height)
+            }
         }
     }
     return complex;

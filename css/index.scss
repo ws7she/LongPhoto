@@ -333,9 +333,21 @@ body{height: 100%;}
         -webkit-flex: 1;
         flex: 1;
         text-align: center;
+        width: 33.3%;
+        height: .5rem;
+        position: relative;
     }
     span{
         display: block;
+    }
+    #addPic_com{
+        width: 33.3%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 10%;
+        display: block
     }
 }
 .trans-line{
